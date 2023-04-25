@@ -6,6 +6,9 @@
             <form-input-pass data-name="password" class="input">Пароль</form-input-pass>
             <main-btn type="button" @click="Login()" class="btn">Войти</main-btn>
         </form>
+        <div class="block">
+            {{ get }}
+        </div>
     </div>
 </template>
 
@@ -13,7 +16,8 @@
 export default {
     data() {
         return {
-            path: '@/api/login/login.php'
+            path: '@/api/login/login.php',
+            get: null
         }
     },
     methods: {
@@ -23,16 +27,13 @@ export default {
             let password = document.querySelector('[data-name="password"] input').value;
             console.log(password)
             const axios = require('axios');
-            axios.post(this.path, {
-                'login' : login,
-                'password' : password
-            })
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            axios.get('http://localhost:8080/registration.py')
+                .then(response => {
+                    this.get = response;
+                })
+                .catch(err => {
+                    this.get = err;
+                })
         }
     }
 }
