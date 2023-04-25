@@ -22,8 +22,8 @@ export default {
         transition: .3s;
     }
     button:hover {
-        border-color:#b061d1;
-        background-color: #b061d1;
+        border-color: #b188f3;
+        background-color:  #b188f3;
         color: #fff;
     }
 </style>
