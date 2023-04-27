@@ -10,7 +10,7 @@ class Main(Resource):
         return {"info": "Some info", "num": 56}
 
 
-api.add_resource(Main, "/api/main")
+api.add_resource(Main, '/registration.py')
 api.init_app(app)
 
 if __name__ == "__main__":

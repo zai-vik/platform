@@ -30,7 +30,7 @@ export default {
             error_message: '',
 
             // опции для логина
-            login_error_symbols: '-@$&!=+',
+            login_error_symbols: '-@$&!=+,./|#%^*()\\{}[]\'";:<>?',
             min_login_length: 6,
             max_login_length: 20,
             rus_alphabet: 'АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя',

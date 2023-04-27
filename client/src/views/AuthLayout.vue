@@ -29,8 +29,8 @@ export default {
         if (parallax) {
             const images = document.querySelectorAll('.decor__img');
 
-            const coeff_1 = 5,
-            coeff_2 = 2,
+            const coeff_1 = 8,
+            coeff_2 = 5,
             coeff_3 = 15,
             coeff_4 = 20;
 
