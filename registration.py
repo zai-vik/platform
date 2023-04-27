@@ -15,14 +15,13 @@ parser.add_argument("email", type=str)
 class Main(Resource):
     def post(self):
       data = parser.parse_args()
+      print(data)
 
       login = data['login']
       password = data['password']
       email = data['email']
 
-      db.insert_user(login, password, email)
-
-      return
+      return db.insert_user(login, password, email)
 
 
 api.add_resource(Main, '/api/reg')
