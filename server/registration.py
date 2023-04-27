@@ -7,12 +7,11 @@ api = Api()
 
 class Main(Resource):
     def get(self):
-        return {"info": "Some info", "num": 56}
+        return {"login": "Some info", "password": 56}
 
 
-api.add_resource(Main, "/api/main")
+api.add_resource(Main, "/api/login")
 api.init_app(app)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080, host="127.0.0.1")
-
+    app.run(debug=True, port=8081, host="127.0.0.1")
