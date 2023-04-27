@@ -27,8 +27,8 @@ export default {
             let password = document.querySelector('[data-name="password"] input').value;
             console.log(password)
             const axios = require('axios');
-            axios.get('http://localhost:8081/api/login').then(response => {
-                    this.get = response;
+            axios.post('http://localhost:8081/api/login', {'login': login, 'password': password}).then(response => {
+                    this.get = response.data;
                 })
                 .catch(err => {
                     this.get = err;

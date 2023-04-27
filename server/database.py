@@ -14,7 +14,7 @@ class Database:
         if user:
             if user['password'] == psword:
                 suc = 1
-                mes = ''
+                msg = ''
             else:
                 suc = 0
                 msg = 'неверный пароль'
@@ -22,7 +22,7 @@ class Database:
             suc = 0
             msg = 'пользователь не найдем'
         
-        return {'success': suc, 'message': mes}
+        return {'success': suc, 'message': msg}
 
     def insert_user(self, login, psword, email):
         req = {
