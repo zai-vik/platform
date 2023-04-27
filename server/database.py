@@ -10,7 +10,7 @@ class Database:
     
     def check_info(self, login, psword):
         user = self.users.find_one({'login': login})
-        
+
         if user:
             if user['password'] == psword:
                 suc = 1
@@ -22,8 +22,7 @@ class Database:
             suc = 0
             msg = 'пользователь не найдем'
         
-        req = {'success': suc,
-               'message': mes}
+        return {'success': suc, 'message': mes}
 
     def insert_user(self, login, psword, email):
         req = {
