@@ -40,6 +40,7 @@
 
             <main-btn type="button" @click="Register()" class="btn">Зарегистрироваться</main-btn>
         </form>
+        <div>{{ get }}</div>
     </div>
 </template>
 
@@ -47,11 +48,12 @@
 export default {
     data() {
         return {
-            path: '@/api/login/login.php',
+            path: 'http://localhost:8081/api/reg',
             login: '',
             email: '',
             password: '',
-            password_double: ''
+            password_double: '',
+            get: null
         }
     },
     methods: {

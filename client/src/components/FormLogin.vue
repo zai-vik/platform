@@ -28,7 +28,7 @@ export default {
             console.log(password)
             const axios = require('axios');
             axios.post('http://localhost:8081/api/login', {'login': login, 'password': password}).then(response => {
-                    this.get = response.data;
+                    this.get = response.data.message;
                 })
                 .catch(err => {
                     this.get = err;
