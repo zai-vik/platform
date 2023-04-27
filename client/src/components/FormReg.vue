@@ -64,14 +64,18 @@ export default {
             console.log(password)
             let email = document.querySelector('[data-name="email"] input').value;
             console.log(email)
-
             const axios = require('axios');
-            axios.post('http://localhost:8081/api/reg', {'login': login, 'password': password, 'email': email}).then(response => {
-                    this.get = response.data;
-                })
-                .catch(err => {
-                    this.get = err;
-                })
+            axios.post(this.path, {
+                'login' : login,
+                'email' : email,
+                'password' : password
+            })
+            .then(response => {
+                this.get = response.data.message;
+            })
+            .catch(err => {
+                this.get = err;
+            })
         }
     }
 }
