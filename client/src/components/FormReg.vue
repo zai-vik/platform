@@ -38,7 +38,7 @@
                 Повторите пароль
             </form-input-pass>
 
-            <main-btn type="button" @click="Login()" class="btn">Зарегистрироваться</main-btn>
+            <main-btn type="button" @click="Register()" class="btn">Зарегистрироваться</main-btn>
         </form>
         <div>{{ get }}</div>
     </div>
