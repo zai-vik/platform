@@ -56,13 +56,8 @@ export default {
                         return false;
 
                     } else if (this.loginErrorSymbols()) { // По содержанию запрещённых символов
-                        let error_symbols = this.login_error_symbols.split('');
-                        for (let i = 0; i < error_symbols.length; i++) {
-                            error_symbols[i] = `"${error_symbols[i]}"`;
-                        }
-                        error_symbols = error_symbols.join(', ');
                         this.error = true;
-                        this.error_message = `Никнейм не может содержать ${error_symbols}`;
+                        this.error_message = `Никнейм содержит недопустимые символы`;
                         return false;
 
                     } else if (this.errorRusAlphabet()) { // По содержанию кириллицы
