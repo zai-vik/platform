@@ -10,18 +10,22 @@ db = Database()
 parser = reqparse.RequestParser()
 parser.add_argument("login", type=str)
 parser.add_argument("password", type=str)
+parser.add_argument("email", type=str)
 
 class Main(Resource):
     def post(self):
-        data = parser.parse_args()
+      data = parser.parse_args()
 
-        login = data['login']
-        password = data['password']
+      login = data['login']
+      password = data['password']
+      email = data['email']
 
-        return db.check_info(login, password)
+      db.insert_user(login, password, email)
+
+      return
 
 
-api.add_resource(Main, '/api/login')
+api.add_resource(Main, '/api/reg')
 api.init_app(app)
 
 if __name__ == "__main__":
