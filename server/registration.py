@@ -7,14 +7,10 @@ api = Api()
 
 class Main(Resource):
     def get(self):
-        return {"login": "Some info", "password": 56}
+        return {"login": "Some info", "password": 'wswe'}
 
 
-<<<<<<< HEAD
-api.add_resource(Main, "/api/login")
-=======
-api.add_resource(Main, '/registration.py')
->>>>>>> d5c2076ec7389943f5de3836cba9419cdb2d52fe
+api.add_resource(Main, '/api/login')
 api.init_app(app)
 
 if __name__ == "__main__":

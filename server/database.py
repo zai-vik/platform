@@ -35,16 +35,3 @@ class Database:
 
         print (f'{login} был добавлен в БД! id: {ins_result.inserted_id}')
         return ins_result.inserted_id
-
-
-db = Database()
-
-# db.insert_user('kurva', 'dddddd', 'kurva@mail.ru')
-# db.insert_user('aboba', '1234', 'fgfgfg@mail.ru')
-# db.insert_user('stasy', 'zxcv', 'qw12erer@mail.ru')
-# db.insert_user('annanushka', 'qwerty', 'jkjkjkjk@mail.ru')
-
-print(db.check_info('kurva', 'dddddd'))
-print(db.check_info('kurva', '1'))
-print(db.check_info('annanushka', '1234'))
-print(db.check_info('fapfap', 'dddddd'))
