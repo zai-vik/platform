@@ -38,7 +38,7 @@
                 Повторите пароль
             </form-input-pass>
 
-            <main-btn type="button" @click="Login()" class="btn">Зарегистрироваться</main-btn>
+            <main-btn type="button" @click="Register()" class="btn">Зарегистрироваться</main-btn>
         </form>
     </div>
 </template>
@@ -60,17 +60,16 @@ export default {
             console.log(login)
             let password = document.querySelector('[data-name="password"] input').value;
             console.log(password)
+            let email = document.querySelector('[data-name="email"] input').value;
+            console.log(email)
+
             const axios = require('axios');
-            axios.post(this.path, {
-                'login' : login,
-                'password' : password
-            })
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            axios.post('http://localhost:8081/api/reg', {'login': login, 'password': password, 'email': email}).then(response => {
+                    this.get = response.data;
+                })
+                .catch(err => {
+                    this.get = err;
+                })
         }
     }
 }

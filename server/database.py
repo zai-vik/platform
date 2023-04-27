@@ -17,21 +17,28 @@ class Database:
                 msg = ''
             else:
                 suc = 0
-                msg = 'неверный пароль'
+                msg = 'Неверный пароль!'
         else:
             suc = 0
-            msg = 'пользователь не найдем'
+            msg = 'Пользователь не найдем!'
         
         return {'success': suc, 'message': msg}
 
     def insert_user(self, login, psword, email):
-        req = {
-            'login': login, 
-            'password': psword, 
-            'email': email
-        }
-        
-        ins_result = self.users.insert_one(req)
+        user = self.users.find_one({'login': login})
 
-        print (f'{login} был добавлен в БД! id: {ins_result.inserted_id}')
-        return ins_result.inserted_id
+        if user:
+            suc = 0
+            msg = 'Никнейм занят!'
+        else:
+            if user['email'] == email:
+                suc = 0
+                msg = 'E-mail занят!'
+            else:
+                suc = 1
+                msg = ''
+        
+                ins_result = self.users.insert_one({'login': login, 'password': psword, 'email': email})
+                print (f'{login} был добавлен в БД! id: {ins_result.inserted_id}')
+        
+        return {'success': suc, 'message': msg}

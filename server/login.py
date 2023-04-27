@@ -14,10 +14,10 @@ parser.add_argument("password", type=str)
 class Main(Resource):
     def post(self):
         data = parser.parse_args()
+
         login = data['login']
         password = data['password']
 
-        db.check_info(login, password)
         return db.check_info(login, password)
 
 
