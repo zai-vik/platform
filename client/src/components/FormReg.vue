@@ -40,6 +40,7 @@
 
             <main-btn type="button" @click="Login()" class="btn">Зарегистрироваться</main-btn>
         </form>
+        <div>{{ get }}</div>
     </div>
 </template>
 
@@ -47,11 +48,12 @@
 export default {
     data() {
         return {
-            path: '@/api/login/login.php',
+            path: 'http://localhost:8081/api/reg',
             login: '',
             email: '',
             password: '',
-            password_double: ''
+            password_double: '',
+            get: null
         }
     },
     methods: {
@@ -59,10 +61,12 @@ export default {
             let login = document.querySelector('[data-name="login"] input').value;
             console.log(login)
             let password = document.querySelector('[data-name="password"] input').value;
+            let email = document.querySelector('[data-name="email"] input').value;
             console.log(password)
             const axios = require('axios');
             axios.post(this.path, {
                 'login' : login,
+                'email' : email,
                 'password' : password
             })
             .then(response => {
