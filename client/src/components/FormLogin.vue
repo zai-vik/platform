@@ -16,7 +16,9 @@
 export default {
     data() {
         return {
-            path: '@/api/login/login.php',
+            path: 'http://localhost:8081/api/login',
+            login: '',
+            password: '',
             get: null
         }
     },
@@ -27,7 +29,7 @@ export default {
             let password = document.querySelector('[data-name="password"] input').value;
             console.log(password)
             const axios = require('axios');
-            axios.post('http://localhost:8081/api/login', {'login': login, 'password': password}).then(response => {
+            axios.post(this.path, {'login': login, 'password': password}).then(response => {
                     this.get = response.data.message;
                 })
                 .catch(err => {

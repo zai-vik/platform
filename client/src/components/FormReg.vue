@@ -48,7 +48,7 @@
 export default {
     data() {
         return {
-            path: 'http://localhost:8081/api/reg',
+            path: 'http://127.0.0.1:8081/api/reg',
             login: '',
             email: '',
             password: '',
@@ -65,12 +65,7 @@ export default {
             let email = document.querySelector('[data-name="email"] input').value;
             console.log(email)
             const axios = require('axios');
-            axios.post(this.path, {
-                'login' : login,
-                'email' : email,
-                'password' : password
-            })
-            .then(response => {
+            axios.post(this.path, {'login' : login, 'email' : email, 'password' : password}).then(response => {
                 this.get = response.data.message;
             })
             .catch(err => {
