@@ -1,4 +1,4 @@
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Resource, reqparse
 from auth_db import Database
 from random import randint
 
@@ -18,15 +18,6 @@ class Reg(Resource):
      print(data)
      
      login = data['login']
-     password = data['password']
      email = data['email']
-     code = randint(100000, 1000000)
      
-     res = db.insert_temp_user(login, password, email, code)
-
-     if res['success'] == 1:
-        send_email(email, code)
-
-     return res
-
-
+     return db.check_new_user(login, email)

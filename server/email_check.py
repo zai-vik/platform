@@ -13,7 +13,3 @@ class CheckUp(Resource):
         code = data['code']
 
         return db.check_code(code)
-
-
-# platorm.email.validation@gmail.com
-# QWER2006ZXCV
